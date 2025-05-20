@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { FormContainer } from "./index.styles";
 import Cookies from "js-cookie";
-import { Navigate } from "react-router";
+import { Navigate,useNavigate } from "react-router";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState(""); 
   const [error_msg, setError_msg] = useState("");
+  let navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const usernameinput = (event) => {
     setUsername(event.target.value);
@@ -19,6 +20,7 @@ const Login = () => {
   };
   const onSubmitSuccess = (jwt_token) => {
     Cookies.set("jwt_token", jwt_token, { expires: 1 });
+    navigate("/", { replace: true });
    
   }
   const onSubmitFailure = (error_msg) => {
