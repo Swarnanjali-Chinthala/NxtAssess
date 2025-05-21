@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { FormContainer } from "./index.styles";
 import Cookies from "js-cookie";
 import { Navigate,useNavigate } from "react-router";
+import { LogoImg } from "./index.styles"; 
+import { InputField,FormStyle,IconImg, FieldWrapper } from "./index.styles";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -50,21 +52,31 @@ if(jwtToken !== undefined){
 }
   return (
     
-    <FormContainer>
-      <h1>Login</h1>
-      <form onSubmit={submitForm}>
-        <input type="text" placeholder="Username" value={username} onChange={usernameinput} />
-        <br/>
-        <input type={showPassword?"text":"password"} placeholder="Password" value={password} onChange={passwordinput} />
-        
-        <br/> 
-        <input type="checkbox" checked={showPassword} onChange={checkboxval} /> 
-        <label>Show Password</label>
-        <br/>
-        <button type="submit">Login</button>
-        <p>{error_msg}</p>
-      </form>
-    </FormContainer>
+   <FormContainer>
+  <LogoImg src="https://ik.imagekit.io/y1tcj686k/nxtAssess/Logo%202.png?updatedAt=1747748679469" alt="logo" />
+  
+  <FormStyle onSubmit={submitForm}>
+    <label>Username</label>
+    <FieldWrapper>
+      <InputField type="text" placeholder="Username" value={username} onChange={usernameinput} />
+    </FieldWrapper>
+
+    <label>Password</label>
+    <FieldWrapper>
+      <IconImg src="https://ik.imagekit.io/y1tcj686k/nxtAssess/Group%2014.png?updatedAt=1747759159805" />
+      <InputField type={showPassword ? "text" : "password"} placeholder="Password" value={password} onChange={passwordinput} />
+    </FieldWrapper>
+
+    <div style={{ marginBottom: '15px' }}>
+      <input type="checkbox" checked={showPassword} onChange={checkboxval} />
+      <label> Show Password</label>
+    </div>
+
+    <button type="submit" style={{ width: '100%',backgroundColor:" #088C03" }}>Login</button>
+    <p>{error_msg}</p>
+  </FormStyle>
+</FormContainer>
+
   );
 }
 export default Login;
