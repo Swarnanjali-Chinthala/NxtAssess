@@ -3,7 +3,7 @@ import { FormContainer } from "./index.styles";
 import Cookies from "js-cookie";
 import { Navigate,useNavigate } from "react-router";
 import { LogoImg } from "./index.styles"; 
-import { InputField,FormStyle,IconImg, FieldWrapper } from "./index.styles";
+import { InputField,FormStyle,IconImg, FieldWrapper,BackgroundContainer } from "./index.styles";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -51,8 +51,8 @@ if(jwtToken !== undefined){
   return <Navigate to="/" />
 }
   return (
-    
-   <FormContainer>
+    <BackgroundContainer>
+      <FormContainer>
   <LogoImg src="https://ik.imagekit.io/y1tcj686k/nxtAssess/Logo%202.png?updatedAt=1747748679469" alt="logo" />
   
   <FormStyle onSubmit={submitForm}>
@@ -76,7 +76,8 @@ if(jwtToken !== undefined){
     <p>{error_msg}</p>
   </FormStyle>
 </FormContainer>
-
+    </BackgroundContainer>
+   
   );
 }
 export default Login;

@@ -1,9 +1,5 @@
-const Cart= () => {
-  return (
-    <div>
-      <h1>Cart</h1>
-      <p>Your cart is empty.</p>
-    </div>
-  );
+const Cart= (props) => {
+  const { item } = props;
+  console.log(item);
 }
 export default Cart;

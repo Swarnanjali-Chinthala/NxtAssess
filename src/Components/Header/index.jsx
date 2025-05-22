@@ -1,19 +1,21 @@
 import {Link} from "react-router-dom";
+import { HeadContainer,UnorderedList,StyledLink } from "./index.styles"; 
 const header=()=>{
     return(
-        <div className="header">
-            <ul>
+        <HeadContainer className="header">
+            <img src="https://ik.imagekit.io/y1tcj686k/nxtAssess/Logo%202.png?updatedAt=1747748679469" alt="logo" />
+            <UnorderedList>
                 <li>
-                    <Link to="/">Home</Link>
+                    <StyledLink to="/">Home</StyledLink>
                 </li>
                 <li>
-                    <Link to="/cart">Cart</Link>
+                    <StyledLink to="/cart">Cart</StyledLink>
                 </li>
-                <li>
-                    <button>Logout</button>
+                <li style={{color:'black'}}>
+                  Logout
                 </li>
-            </ul>
-        </div>
+            </UnorderedList>
+        </HeadContainer>
     )
 }
 export default header;
